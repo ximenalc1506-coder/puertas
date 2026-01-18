@@ -1,0 +1,105 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Archivo de Puertas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      padding: 8px 14px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+    }
+
+    .filters button:hover {
+      background: #bbb;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .item img {
+      width: 100%;
+      display: block;
+    }
+
+    .item p {
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Archivo de Puertas</h1>
+</header>
+
+<div class="filters">
+  <button onclick="filterItems('all')">Todas</button>
+  <button onclick="filterItems('blanca')">Blancas</button>
+  <button onclick="filterItems('negra')">Negras</button>
+  <button onclick="filterItems('madera')">Madera</button>
+</div>
+
+<section class="gallery">
+  <div class="item blanca">
+    <img src="images/puerta1.jpg">
+    <p>Puerta blanca</p>
+  </div>
+
+  <div class="item negra">
+    <img src="images/puerta2.jpg">
+    <p>Puerta negra</p>
+  </div>
+
+  <div class="item madera">
+    <img src="images/puerta3.jpg">
+    <p>Puerta de madera</p>
+  </div>
+</section>
+
+<script>
+  function filterItems(category) {
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+      if (category === 'all' || item.classList.contains(category)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
